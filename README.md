@@ -18,7 +18,7 @@ All the .mp3 files will be sotred into the folder named "Music" (will be created
 
 ## Example
 
-![alt text](screenshot/screenqhot.png "Screenshot")
+![alt text](screenshot/screenshot.png "Screenshot")
 
 
 ## Licence
