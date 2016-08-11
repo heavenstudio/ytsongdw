@@ -1,6 +1,7 @@
 ##
 
-A ruby script to download the audio stream of any kind of youtube video
+A ruby script to download the audio stream of any kind of youtube video without constraint.
+It will bypass copyright restrictions, VEVO accounts...
 
 ## Needed Gems
 - nokogiri
