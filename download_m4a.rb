@@ -7,6 +7,7 @@ require 'youtube-dl.rb'
 require 'open-uri'
 
 DOWNLOAD_DIRECTORY = '~/Music/'.freeze
+YOUTUBE_URL = 'https://www.youtube.com/watch?v='.freeze
 
 def download(url, name)
   location = DOWNLOAD_DIRECTORY + name.strip.tr('/', '|') + '.m4a'
@@ -20,22 +21,18 @@ def download(url, name)
   puts "DONE (see the folder '#{DOWNLOAD_DIRECTORY}')"
 end
 
-def parse_url(url = nil)
-  if url.include?('youtube.com')
-    url = url.strip
-  else
-    search_url = "https://www.youtube.com/results?search_query=#{URI.encode(url)}"
-    results = open(search_url).read
-    if results =~ /watch\?v=([-\w_]+)/
-      url = "https://www.youtube.com/watch?v=#{Regexp.last_match(1)}"
-    else
-      puts "DIDNT FIND ANY RESULTS FOR #{url}"
-      url = nil
-    end
-  end
-
+def parse_url(input = nil)
+  url = input.include?('youtube') ? input.strip : find_youtube_video(input)
   url = url.slice(0, url.index('&')) if url.include? '&'
   url
+end
+
+def find_youtube_video(name)
+  search_url = "https://www.youtube.com/results?search_query=#{URI.encode(name)}"
+  results = open(search_url).read
+
+  return "#{YOUTUBE_URL}#{Regexp.last_match(1)}" if results =~ /watch\?v=([-\w_]+)/
+  puts "DIDNT FIND ANY RESULTS FOR #{url}"
 end
 
 def parse_title(title)
@@ -64,7 +61,6 @@ end
 
 if ARGV[0].include?('.txt')
   filename = ARGV[0]
-  file = File.open(filename)
   total_lines = File.open(filename).readlines.size
   File.open(filename).each_line.with_index do |line, line_number|
     launch_download(parse_url(line), line_number + 1, total_lines)
