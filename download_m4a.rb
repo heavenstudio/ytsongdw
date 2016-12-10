@@ -20,7 +20,7 @@ def download(url, name)
   puts "DONE (see the folder '#{DOWNLOAD_DIRECTORY}')"
 end
 
-def parseURL(url = nil)
+def parse_url(url = nil)
   if url.include?('youtube.com')
     url = url.strip
   else
@@ -38,12 +38,12 @@ def parseURL(url = nil)
   url
 end
 
-def parseTitle(title)
+def parse_title(title)
   title = title.slice(0, title.rindex('-')) if title.include? '-'
   title
 end
 
-def launchDownload(url, compteur, totalDownloads)
+def launch_download(url, compteur, totalDownloads)
   file = open(url)
   doc = Nokogiri::HTML(file)
   # Encoding options
@@ -54,7 +54,7 @@ def launchDownload(url, compteur, totalDownloads)
     universal_newline: true # Always break lines with \n
   }
   title = doc.at_css('title').text.encode(Encoding.find('ASCII'), encoding_options) # Delete non ASCII chars
-  title = parseTitle(title)
+  title = parse_title(title)
   puts compteur.to_s + '/' + totalDownloads.to_s + '- ' + title
   download(url, title)
 rescue OpenURI::HTTPError
@@ -76,9 +76,9 @@ if ARGV[0].include?('.txt')
   file = File.open(filename)
   total_lines = File.open(filename).readlines.size
   File.open(filename).each_line.with_index do |line, line_number|
-    launchDownload(parseURL(line), line_number + 1, total_lines)
+    launch_download(parse_url(line), line_number + 1, total_lines)
   end
   puts 'FINISHED'
 else
-  launchDownload(parseURL(ARGV[0]), 1, 1)
+  launch_download(parse_url(ARGV[0]), 1, 1)
 end
