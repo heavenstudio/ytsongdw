@@ -17,7 +17,7 @@ Download from a youtube link<br/>
 `bundle exec download_m4a.rb https://www.youtube.com/watch?v=bM7SZ5SBzyY`<br/>
 <br/>
 Download multiple songs from a file containing several youtube urls or song names (one per line)<br/>
-`bundle exec download_m4a.rb example_links.txt`<br/>
+`bundle exec download_m4a.rb songs.txt`<br/>
 <br/>
 All the .m4a files will be stored into the folder named "~/Music" (will be created if it doesn't exist). You can change the folder name by changing the DOWNLOAD_DIRECTORY constant value on download_m4a.rb:9
 
