@@ -18,7 +18,6 @@ def download(url, name)
   }
   puts "DOWNLOADING #{url}/#{name}"
   YoutubeDL.download url, options
-  puts "DONE (see the folder '#{DOWNLOAD_DIRECTORY}')"
 end
 
 def parse_url(input = nil)
@@ -65,7 +64,7 @@ if ARGV[0].include?('.txt')
   File.open(filename).each_line.with_index do |line, line_number|
     launch_download(parse_url(line), line_number + 1, total_lines)
   end
-  puts 'FINISHED'
 else
   launch_download(parse_url(ARGV[0]), 1, 1)
 end
+puts "DONE (see the folder '#{DOWNLOAD_DIRECTORY}')"
