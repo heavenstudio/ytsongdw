@@ -9,7 +9,7 @@ require 'open-uri'
 DOWNLOAD_DIRECTORY = '~/Music/'.freeze
 
 def download(url, name)
-  location = DOWNLOAD_DIRECTORY + name.strip + '.m4a'
+  location = DOWNLOAD_DIRECTORY + name.strip.tr('/', '|') + '.m4a'
   # Download options
   options = {
     format: 'm4a',
@@ -24,7 +24,7 @@ def parse_url(url = nil)
   if url.include?('youtube.com')
     url = url.strip
   else
-    search_url = "https://www.youtube.com/results?search_query=#{url.tr(' ', '+')}"
+    search_url = "https://www.youtube.com/results?search_query=#{URI.encode(url)}"
     results = open(search_url).read
     if results =~ /watch\?v=([-\w_]+)/
       url = "https://www.youtube.com/watch?v=#{Regexp.last_match(1)}"
