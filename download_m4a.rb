@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'bundler/setup'
-require 'nokogiri'
+require 'scrapifier'
 require 'youtube-dl.rb'
 require 'open-uri'
 
@@ -43,19 +43,10 @@ def parse_title(title)
   title
 end
 
-def launch_download(url, compteur, totalDownloads)
-  file = open(url)
-  doc = Nokogiri::HTML(file)
-  # Encoding options
-  encoding_options = {
-    invalid: :replace, # Replace invalid byte sequences
-    undef: :replace, # Replace anything not defined in ASCII
-    replace: '', # Use a blank for those replacements
-    universal_newline: true # Always break lines with \n
-  }
-  title = doc.at_css('title').text.encode(Encoding.find('ASCII'), encoding_options) # Delete non ASCII chars
-  title = parse_title(title)
-  puts compteur.to_s + '/' + totalDownloads.to_s + '- ' + title
+def launch_download(url, n, total)
+  metadata = url.scrapify
+  title = parse_title metadata[:title]
+  puts "#{n}/#{total} - #{title}"
   download(url, title)
 rescue OpenURI::HTTPError
   puts "COULDNT DOWNLOAD #{url}"
