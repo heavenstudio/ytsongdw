@@ -52,7 +52,7 @@ if ARGV.length != 1 || ARGV[0] == '-h' || ARGV[0] == '--help'
   puts 'You should pass one parameter: The song name/youtube url or the file containing all youtube songs/urls to download'
   puts 'make sure youve run `bundle install` first to download dependencies and then one of:'
   puts 'Example1: bundle exec download_m4a.rb test.txt'
-  puts 'Example2: bundle exec download_m4a.rb https://www.youtube.com/watch?v=bM7SZ5SBzyY'
+  puts 'Example2: bundle exec download_m4a.rb "https://www.youtube.com/watch?v=bM7SZ5SBzyY"'
   puts 'Example3: bundle exec download_m4a.rb "Titanic Song"'
   puts
   exit 0
