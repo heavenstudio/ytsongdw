@@ -8,6 +8,7 @@ require 'open-uri'
 
 DOWNLOAD_DIRECTORY = '~/Music/'.freeze
 YOUTUBE_URL = 'https://www.youtube.com/watch?v='.freeze
+YOUTUBE_SEARCH_URL = 'https://www.youtube.com/results?search_query='.freeze
 
 def download(url, name)
   location = DOWNLOAD_DIRECTORY + name.strip.tr('/', '|') + '.m4a'
@@ -27,10 +28,10 @@ def parse_url(input = nil)
 end
 
 def find_youtube_video(name)
-  search_url = "https://www.youtube.com/results?search_query=#{URI.encode(name)}"
+  search_url = YOUTUBE_SEARCH_URL + URI.encode(name)
   results = open(search_url).read
 
-  return "#{YOUTUBE_URL}#{Regexp.last_match(1)}" if results =~ /watch\?v=([-\w_]+)/
+  return YOUTUBE_URL + Regexp.last_match(1) if results =~ /watch\?v=([-\w_]+)/
   puts "DIDNT FIND ANY RESULTS FOR #{url}"
 end
 
