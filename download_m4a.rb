@@ -12,13 +12,12 @@ YOUTUBE_SEARCH_URL = 'https://www.youtube.com/results?search_query='.freeze
 
 def download(url, name)
   location = DOWNLOAD_DIRECTORY + name.strip.tr('/', '|') + '.m4a'
-  # Download options
-  options = {
+  download_options = {
     format: 'm4a',
     output: location
   }
   puts "DOWNLOADING #{url}/#{name}"
-  YoutubeDL.download url, options
+  YoutubeDL.download url, download_options
 end
 
 def parse_url(input = nil)
