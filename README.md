@@ -21,7 +21,7 @@ Download multiple songs from a file containing several youtube urls or song name
 Download all songs in a youtube playlist<br/>
 `bundle exec download_m4a.rb https://www.youtube.com/playlist?list=PL9B23A78D3D249A74`<br/>
 <br/>
-By default all the .m4a files will be stored into the folder named "~/Music/" (will be created if it doesn't exist). You can change the folder name by passing a second argument to the command line as shown in the second example above. DO NOT FORGET the endind '/' on the folder name, or else it will treat it as a filename prefix instead of a folder path.
+By default all the .m4a files will be stored into the folder named "~/Music/" (will be created if it doesn't exist). You can change the folder name by passing a second argument to the command line as shown in the second example above. DO NOT FORGET the endind '/' on the folder name, or else it will be treated as a filename prefix instead of a folder path.
 
 ## Original Author
 Based on https://github.com/ggouzi/Youtube-Download-Songs, only changed it to download songs by name, in m4a format and supporting playlists.
