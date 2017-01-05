@@ -2,7 +2,7 @@
 class YoutubeSongDownloader
   def initialize(args)
     if args.length.zero? || args[0] == '-h' || args[0] == '--help'
-      Logger.print_help_message
+      SimpleLogger.print_help_message
       exit 0
     else
       @input = args[0]
@@ -19,7 +19,7 @@ class YoutubeSongDownloader
       @counter.total = 1
       download_playlist_or_song(@input)
     end
-    Logger.done(@settings)
+    SimpleLogger.done(@settings)
   end
 
   def download_file_songs(filename)

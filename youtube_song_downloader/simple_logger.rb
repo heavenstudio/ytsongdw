@@ -1,5 +1,5 @@
 # Simple STDOUT logger containing all texts
-module Logger
+module SimpleLogger
   def self.log(text)
     puts "# #{text}"
   end

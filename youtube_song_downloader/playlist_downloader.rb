@@ -24,7 +24,7 @@ class PlaylistDownloader < Downloader
         .map { |link| YOUTUBE_HTTPS_URL + link.attr('href') }
         .uniq
   rescue
-    Logger.couldnt_fetch_playlist_url
+    SimpleLogger.couldnt_fetch_playlist_url
     []
   end
 

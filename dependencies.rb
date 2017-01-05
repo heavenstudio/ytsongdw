@@ -3,7 +3,7 @@ require 'bundler/setup'
 Bundler.require(:default)
 
 require 'open-uri'
-require_relative 'youtube_song_downloader/logger'
+require_relative 'youtube_song_downloader/simple_logger'
 require_relative 'youtube_song_downloader/counter'
 require_relative 'youtube_song_downloader/file_settings'
 require_relative 'youtube_song_downloader/downloader'
