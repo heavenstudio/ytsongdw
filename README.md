@@ -24,7 +24,12 @@ Download multiple songs from a file containing several youtube urls, song names 
 By default all the .m4a files will be stored into the folder named "~/Music/" (will be created if it doesn't exist). You can change the folder name by passing a second argument to the command line as shown in the second example above. DO NOT FORGET the endind '/' on the folder name, or else it will be treated as a filename prefix instead of a folder path.
 
 ## Original Author
-Based on https://github.com/ggouzi/Youtube-Download-Songs, only changed it to download songs by name, in m4a format and supporting playlists.
+Based on https://github.com/ggouzi/Youtube-Download-Songs, but added the following changes:
+- allow song download by name
+- download in m4a format instead of mp3
+- added playlists support
+- made it into a rubygem
+- added test coverage and improved code quality
 
 ## Licence
-This project is licensed under the GNU GPL v2. See GPL.txt for details.
+This project is licensed under the GNU GPL 2.0. See LICENSE.txt for details.
