@@ -1,2 +1,12 @@
-coverage/*
+# bundler
+.bundle
+
+# juwelier generated
+pkg
+
+# rcov generated
+coverage
+coverage.data
+
+# generate by tests
 */tmp/*
