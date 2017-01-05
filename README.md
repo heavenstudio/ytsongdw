@@ -16,10 +16,10 @@ Download a song by name into folder '~/Music/'<br/>
 Download from a youtube link into folder '~/songs/'<br/>
 `bundle exec download_m4a.rb https://www.youtube.com/watch?v=bM7SZ5SBzyY ~/songs/`<br/>
 <br/>
-Download multiple songs from a file containing several youtube urls or song names (one per line)<br/>
-`bundle exec download_m4a.rb songs.txt`<br/>
 Download all songs in a youtube playlist<br/>
 `bundle exec download_m4a.rb https://www.youtube.com/playlist?list=PL9B23A78D3D249A74`<br/>
+Download multiple songs from a file containing several youtube urls, song names or playlist urls (one per line). Basically all the above options in a `.txt` file<br/>
+`bundle exec download_m4a.rb songs.txt`<br/>
 <br/>
 By default all the .m4a files will be stored into the folder named "~/Music/" (will be created if it doesn't exist). You can change the folder name by passing a second argument to the command line as shown in the second example above. DO NOT FORGET the endind '/' on the folder name, or else it will be treated as a filename prefix instead of a folder path.
 
