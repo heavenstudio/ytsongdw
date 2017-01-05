@@ -102,7 +102,7 @@ DEPENDENCIES
   codeclimate-test-reporter (~> 1.0)
   juwelier (~> 2.1)
   memoist (~> 0)
-  nokogiri (~> 1.0)
+  nokogiri (~> 1.6)
   pry (~> 0)
   rdoc (~> 3.12)
   rspec (~> 3.0)
