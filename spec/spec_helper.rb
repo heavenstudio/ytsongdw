@@ -1,5 +1,5 @@
 require 'simplecov'
 SimpleCov.start
 
-require_relative '../ytsongdw'
+require 'ytsongdw'
 Bundler.require(:default, :test)
