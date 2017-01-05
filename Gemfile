@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'memoist', '~> 0'
-gem 'nokogiri', '~> 1.0'
+gem 'nokogiri', '~> 1.6'
 gem 'scrapifier', '~> 0'
 gem 'youtube-dl.rb', '~> 0'
 
