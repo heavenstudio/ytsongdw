@@ -15,6 +15,7 @@ YOUTUBE_BASE_URL = 'youtube.com'.freeze
 YOUTUBE_HTTPS_URL = "https://www.#{YOUTUBE_BASE_URL}".freeze
 YOUTUBE_WATCH_URL = "#{YOUTUBE_HTTPS_URL}/watch?v=".freeze
 YOUTUBE_SEARCH_URL = "#{YOUTUBE_HTTPS_URL}/results?search_query=".freeze
+MAXIMUM_NUMBER_OF_TRIES = 3
 
 def download_directory
   if ARGV[1] && ARGV[1] != ''
@@ -24,7 +25,8 @@ def download_directory
   end
 end
 
-def download(url, name, subfolder = nil)
+def download(url, name, subfolder = nil, number_of_tries = 1)
+  return puts 'MAXIMUM NUMBER OF TRIES EXCEEDED' if number_of_tries > MAXIMUM_NUMBER_OF_TRIES
   location = download_directory + subfolder.to_s + sanitize_folder_name(name) + '.m4a'
   download_options = {
     format: 'm4a',
@@ -32,6 +34,9 @@ def download(url, name, subfolder = nil)
   }
   puts "DOWNLOADING #{url}/#{name}"
   YoutubeDL.download url, download_options
+rescue
+  puts "COULDN'T DOWNLOAD #{url}/#{name} TRY ##{number_of_tries}"
+  download(url, name, subfolder, number_of_tries + 1)
 end
 
 def sanitize_folder_name(folder_name)
