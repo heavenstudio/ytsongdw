@@ -1,19 +1,7 @@
 Style/AccessModifierIndentation:
   EnforcedStyle: outdent
-Style/Documentation:
-  Enabled: false
-Style/EmptyLinesAroundAccessModifier:
-  Enabled: false
-Style/WordArray:
-  Enabled: false
-Style/PredicateName:
-  Enabled: false
-Lint/Debugger:
+Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
   Max: 120
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
+require: rubocop-rspec
