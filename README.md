@@ -1,3 +1,7 @@
+[![Code Climate](https://codeclimate.com/github/heavenstudio/ytsongdw/badges/gpa.svg)](https://codeclimate.com/github/heavenstudio/ytsongdw)
+
+[![Test Coverage](https://codeclimate.com/github/heavenstudio/ytsongdw/badges/coverage.svg)](https://codeclimate.com/github/heavenstudio/ytsongdw/coverage)
+
 ##
 
 A ruby script to download the audio stream of any kind of youtube video without constraint.

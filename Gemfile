@@ -6,8 +6,8 @@ gem 'scrapifier'
 gem 'youtube-dl.rb'
 
 group :test do
+  gem 'codeclimate-test-reporter'
   gem 'pry'
   gem 'rspec'
-  gem 'codeclimate-test-reporter'
   gem 'simplecov', require: false
 end
