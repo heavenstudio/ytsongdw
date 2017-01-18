@@ -1,8 +1,11 @@
 require 'rubygems'
-require 'bundler/setup'
-Bundler.require(:default)
 
 require 'open-uri'
+require 'memoist'
+require 'nokogiri'
+require 'scrapifier'
+require 'youtube-dl.rb'
+
 require_relative 'simple_logger'
 require_relative 'counter'
 require_relative 'file_settings'
